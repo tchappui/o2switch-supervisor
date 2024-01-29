@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # La tâche à ajouter
-CRON_TASK="*/5 * * * * /bin/bash /home/vyql2317/supervisor/start_supervisor.sh >/dev/null 2>&1"
+CRON_TASK="*/5 * * * * cd $(cat ./path.txt) && /bin/bash $(pwd)/start_supervisor.sh >/dev/null 2>&1"
 
 # Vérifiez si la tâche est déjà dans crontab
 if ! crontab -l | grep -Fxq "$CRON_TASK"; then
